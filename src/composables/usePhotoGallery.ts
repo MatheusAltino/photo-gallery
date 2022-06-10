@@ -10,7 +10,7 @@ export function usePhotoGallery() {
         const photo = await Camera.getPhoto({
             resultType: CameraResultType.Uri,
             source: CameraSource.Camera,
-            quality: 100,
+            quality: 100
         });
         const fileName = new Date().getTime() + '.jpeg';
         const savedFileImage = await savePicture(photo, fileName)
@@ -41,13 +41,11 @@ export function usePhotoGallery() {
             reader.readAsDataURL(blob);
         });
         
-    const savePicture = async (photo: Photo, fileName: string): Promise<UserPhoto> => {
-        let base64Data: string;
-      
+    const savePicture = async (photo: Photo, fileName: string): Promise<UserPhoto> => {      
         // Fetch the photo, read as a blob, then convert to base64 format
         const response = await fetch(photo.webPath!);
         const blob = await response.blob();
-        base64Data = (await convertBlobToBase64(blob)) as string;
+        const base64Data = (await convertBlobToBase64(blob)) as string;
       
         const savedFile = await Filesystem.writeFile({
           path: fileName,
@@ -79,4 +77,4 @@ export function usePhotoGallery() {
 export interface UserPhoto {
     filepath: string;
     webviewPath?: string;
-  }
+}

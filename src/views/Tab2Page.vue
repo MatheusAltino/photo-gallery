@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Photo Gallery</ion-title>
+        <ion-title>Tire uma Superfoto</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -11,18 +11,6 @@
           <ion-icon :icon="camera"></ion-icon>
         </ion-fab-button>
       </ion-fab>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6" :key="photo" v-for="photo in photos">
-            <ion-img :src="photo.webviewPath"></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
-        </ion-toolbar>
-      </ion-header>
     </ion-content>
   </ion-page>
 </template>
@@ -31,7 +19,7 @@
 import { defineComponent } from 'vue';
 import { camera, trash, close } from 'ionicons/icons'
 import { usePhotoGallery, UserPhoto } from '@/composables/usePhotoGallery';
-import { IonPage, IonHeader, IonFab, IonFabButton, IonIcon, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
+import { IonPage, IonHeader, IonFab, IonFabButton, IonIcon, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
@@ -45,15 +33,10 @@ export default defineComponent({
     IonToolbar,
     IonTitle,
     IonContent,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonImg,
   },
   setup() {
-    const { photos, takePhoto } = usePhotoGallery();
+    const { takePhoto } = usePhotoGallery();
     return {
-      photos,
       takePhoto,
       camera,
       trash,
@@ -62,3 +45,7 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+
+</style>

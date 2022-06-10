@@ -1,0 +1,36 @@
+:root {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+}
+
+ion-title {
+    text-transform: uppercase;
+    color: var(--ion-color-warning);
+    opacity: 90%;
+    font-size: 26px;
+    font-family: cursive;
+    text-align: center;
+}
+
+ion-toolbar {
+    --background: var(--ion-color-primary-shade);
+}
+
+ion-fab-button {
+    --background: var(--ion-color-warning);
+    opacity: 70%;
+}
+
+ion-content {
+    --background: var(--ion-card-background);
+}
+
+ion-grid {
+    --ion-grid-padding: 10px;
+    --handle-border-radius: 25px
+}
+
+ion-img {
+    --handle-border-radius: 25px
+}
